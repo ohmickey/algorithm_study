@@ -43,3 +43,24 @@ def anagrams(arr):
         lst[''.join(sorted(word))].append(word)
     return list(lst.values())
 ```
+
+# 모범 코드
+
+``` python
+class Solution(object):
+    def groupAnagrams(self, strs):
+        hmap = {}
+        out = []
+        for el in strs:
+            s_el = "".join(sorted(el))
+            if s_el in hmap:
+                out[hmap[s_el]].append(el)
+            else:
+                hmap[s_el] = len(out)
+                out.append([el])
+
+        return out
+```
+# Notion 링크
+
+[Notion : Grow Algorithm study 49](https://www.notion.so/49-4f105708cdeb413f8d85a0f05638bf17)
